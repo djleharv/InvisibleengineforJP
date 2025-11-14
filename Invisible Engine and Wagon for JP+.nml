@@ -1,0 +1,106 @@
+grf {
+	grfid: "DJ\02\01";
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESCRIPTION);
+	version: 0;
+	min_compatible_version: 0;
+}
+
+/* Define a rail type table,
+ * this allows referring to railtypes
+ * irrespective of the grfs loaded.
+ */
+railtypetable {
+  TR_1067_NE:       [NAAN, RAIL], //Non-Electrified
+  TR_1067_DC:       [NAAD, NAAE, NABE, ELNG, ELRL],
+  TR_1067_AC:       [NAAA, NAAE, NABE, ELNG, ELRL],
+  TR_1067_ACDC:     [NAAE, NABE, ELNG, ELRL],
+	TR_1372_DC:       [sAAD, sAAE, SAAD, SAAE, ELRL],
+	TR_1435_NE:       [SAAN, RAIL],
+	TR_1435_DC:       [SAAD, ELRL],
+	TR_1435_AC:       [SAAA, ELRL],
+	TR_1435_ACDC:     [SAAE, ELRL],
+	TR_1435_M:        [SAA3, SAB3, "3RDR", MTRO, ELRL],
+	TR_1435_LINEAR:   [SAAI, SAAD, ELRL],
+  TR_RUBBER:        [rAA3, rAAE, ELRL],
+	TR_UNIVERSAL:     [_AAE, RAIL], //for mu cars
+}
+
+
+//graphics definition
+spriteset(spriteset_empty, "gfx/none.png") {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ 0,      0,        1,    1,        0,        0]
+    [ 0,      0,        1,    1,        0,        0]
+    [ 0,      0,        1,    1,        0,        0]
+    [ 0,      0,        1,    1,        0,        0]
+    [ 0,      0,        1,    1,        0,        0]
+    [ 0,      0,        1,    1,        0,        0]
+    [ 0,      0,        1,    1,        0,        0]
+    [ 0,      0,        1,    1,        0,        0]
+}
+item(FEAT_TRAINS, item_none) {
+    property {
+        sprite_id: 						SPRITE_ID_NEW_TRAIN;
+		name:                         	string(STR_NAME_1);
+		misc_flags:                  	bitmask();
+		track_type:                   	[NAAN, SAAN];
+		
+        climates_available:           	ALL_CLIMATES; 
+        introduction_date:            	date(1800, 1, 1);
+        model_life:                   	VEHICLE_NEVER_EXPIRES;
+		
+        vehicle_life:                 	255;
+        reliability_decay:            	0;
+        cost_factor:                  	0;
+        running_cost_factor:          	0;
+		running_cost_base:            	RUNNING_COST_NONE;
+		
+        speed:                        	80 km/h;
+        power:                        	2500 kW;
+		
+        dual_headed:                  	0;
+        weight:                       	1;
+        engine_class:                 	ENGINE_CLASS_DIESEL;
+		tractive_effort_coefficient:  	0.25;
+        air_drag_coefficient:         	0;
+	
+        bitmask_vehicle_info:         0;
+        length:                       1;
+    }
+
+    graphics {
+        default: spriteset_empty;
+    }
+}
+
+item(FEAT_TRAINS, item_none_2) {
+    property {
+        sprite_id:                    	SPRITE_ID_NEW_TRAIN;       
+		name:                         	string(STR_NAME_2);
+		misc_flags:                   	bitmask();
+		track_type:                   	[NAAN, SAAN];	
+		
+        climates_available:           	ALL_CLIMATES; 
+        introduction_date:            	date(1800, 1, 1);
+        model_life:                   	VEHICLE_NEVER_EXPIRES;
+		
+        vehicle_life:                 	255;
+        reliability_decay:            	0;
+        cost_factor:                  	0;
+        running_cost_factor:          	0;
+		running_cost_base:            	RUNNING_COST_NONE;
+
+        speed:                        	80 km/h;
+
+        dual_headed:                  	0;
+        weight:                       	1;
+
+        bitmask_vehicle_info:         0;
+        length:                       1;
+    }
+
+    graphics {
+        default: spriteset_empty;
+    }
+}

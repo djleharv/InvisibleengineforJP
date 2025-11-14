@@ -1,0 +1,9 @@
+##grflangid 0x01
+# This is the English language file
+
+# GRF name and description definitions
+STR_GRF_NAME        :Invisible engine set 1.0.0 (for JP+)
+STR_GRF_DESCRIPTION :This set provides one invisible engine and one invisible wagon intended for eye-candy purposes. Original code by Gebik, adapted for JP+ by DJ Le Harv.
+
+STR_ENGINE            :Invisible Engine
+STR_WAGON             :Invisible Wagon

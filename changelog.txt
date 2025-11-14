@@ -1,0 +1,4 @@
+1.0.1 => 1.1.0
+Add invisible wagon.
+1.0.0 => 1.0.1
+Raise power and speed a bit.
