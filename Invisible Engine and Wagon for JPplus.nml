@@ -28,17 +28,30 @@ railtypetable {
 
 
 //graphics definition
-spriteset(spriteset_empty, "gfx/none.png") {
+
+spriteset(blank_set, "gfx/blank.png") {
     //left_x, upper_y, width, height, offset_x, offset_y
-    [ 0,      0,        1,    1,        0,        0]
-    [ 0,      0,        1,    1,        0,        0]
-    [ 0,      0,        1,    1,        0,        0]
-    [ 0,      0,        1,    1,        0,        0]
-    [ 0,      0,        1,    1,        0,        0]
-    [ 0,      0,        1,    1,        0,        0]
-    [ 0,      0,        1,    1,        0,        0]
-    [ 0,      0,        1,    1,        0,        0]
+    [ 1,       1,        8,     24,        -3,         -12,	0]
+    [ 10,      1,        22,    20,        -14,        -12,	0]
+    [ 33,      1,        32,    16,        -14,        -12,	0]
+    [ 66,      1,        22,    20,        -6,         -12,	0]
+    [ 89,      1,        8,     24,        -3,         -12,	0]
+    [ 98,      1,        22,    20,        -14,        -12,	0]
+    [ 121,     1,        32,    16,        -14,        -12,	0]
+    [ 154,     1,        22,    20,        -6,         -12,	0]
+	}
+
+spriteset(blank_depot, "gfx/blank-depot.png") { 
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[ 1,	  1, 	    8, 	  24,  		-16, 	 -3,	0] 
+	}
+
+switch (FEAT_TRAINS, SELF, depot_switch, vehicle_is_in_depot) {
+	0: blank_set;
+	1: blank_depot;
+    CB_FAILED;
 }
+
 item(FEAT_TRAINS, item_engine) {
     property {
         sprite_id: 						SPRITE_ID_NEW_TRAIN;
@@ -71,7 +84,8 @@ item(FEAT_TRAINS, item_engine) {
     }
 
     graphics {
-        default: spriteset_empty;
+        default: depot_switch;
+		purchase: blank_depot;
     }
 }
 
@@ -100,6 +114,7 @@ item(FEAT_TRAINS, item_wagon) {
     }
 
     graphics {
-        default: spriteset_empty;
+        default: depot_switch;
+		purchase: blank_depot;
     }
 }
